@@ -1,0 +1,154 @@
+Задача 1
+
+Модульный:
+
+#include <iostream>
+#include <cmath>
+
+double hyp(double a, double b) {
+    return std::sqrt(a * a + b * b);
+}
+
+int main() {
+    double a, b;
+    std::cout << "Введите катеты a и b: ";
+    std::cin >> a >> b;
+    std::cout << "Гипотенуза: " << hyp(a, b) << std::endl;
+    return 0;
+}
+
+Процедурный:
+
+#include <iostream>
+#include <cmath>
+
+int main() {
+    double a, b, c;
+    std::cout << "Введите катеты a и b: ";
+    std::cin >> a >> b;
+    
+    hyp = std::sqrt(a * a + b * b);
+    
+    std::cout << "Гипотенуза: " << hyp << std::endl;
+    return 0;
+}
+
+ООП:
+
+#include <iostream>
+#include <cmath>
+
+class Triangle {
+private:
+    double legA, legB;
+public:
+    Triangle(double a, double b) : legA(a), legB(b) {}
+    
+    double getHypotenuse() {
+        return std::sqrt(legA * legA + legB * legB);
+    }
+};
+
+int main() {
+    double a, b;
+    std::cout << "Введите катеты a и b: ";
+    std::cin >> a >> b;
+    
+    Triangle t(a, b);
+    std::cout << "Гипотенуза: " << t.getHypotenuse() << std::endl;
+    return 0;
+}
+
+Файловый:
+
+#include <iostream>
+#include <fstream>
+#include <cmath>
+using namespace std;
+
+int main() {
+ifstream in("input.txt");
+    ofstream out("output.txt");
+    int a, b;
+    in >> a >> b;
+    double hyp = sqrt(a * a + b * b);
+    out << hyp;
+    in.close();
+    out.close();
+    return 0;
+}
+
+Задача 2
+
+Модульный:
+
+#include <iostream>
+using namespace std;
+
+int tchk(int v, int t) {
+    int distance = v * t;
+    return distance - (distance / 109) * 109;
+}
+int main () {
+    int v, t;
+    cin >> v >> t;
+    cout << tchk(v, t);
+    return 0;
+}
+
+Процедурный:
+
+#include <iostream>
+using namespace std;
+
+void Tchk(int v, int t, int &result) {
+    int distance = v * t;
+    result = distance - (distance / 109) * 109;
+}
+int main() {
+    int v, t, tchk;
+    cin >> v >> t;
+    Tchk(v, t, tchk);
+    cout << tchk;
+    return 0;
+}
+
+ООП:
+
+#include <iostream>
+using namespace std;
+
+class biker {
+public:
+    int tchk(int v, int t) {
+        int distance = v * t;
+        return distance - (distance / 109) * 109;
+    }
+};
+int main () {
+    int v, t;
+    cin >> v >> t;
+    biker b;
+    cout << b.tchk(v, t);
+    return 0;
+}
+
+Файловый:
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream in("input2.txt");
+    ofstream out("output.txt");
+    int v, t;
+    in >> v >> t;
+    int distance = v * t;
+    int tchk = distance - (distance / 109) * 109;
+    out << tchk;
+    in.close();
+    out.close();
+    return 0;
+}
+
